@@ -1,0 +1,23 @@
+Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+
+Bonus - provide recommendations on how to remediate the vulnerabilities.
+
+- Web instance C3-Instance i-0cf8a3b57a71d121d is configured to allow users to log in with root credentials over SSH, without having to use a command authenticated by a public key. This increases the likelihood of a successful brute-force attack.
+Recommendation: configure your EC2 instance to prevent root account logins over SSH. To disable SSH root account logins, set PermitRootLogin to 'no' in /etc/ssh/sshd_config and restart sshd. When logged in as a non-root user, you can use sudo to escalate privileges when necessary. If you want to allow public key authentication with a command associated with the key, you can set **PermitRootLogin** to 'forced-commands-only'.
+users shouldn't be authenticated with root and it's better configured IAM user with least previlege or authenticate with IAM role.
+
+- instance i-0cf8a3b57a71d121d, process 'sshd' is listening on TCP port 22 which is associated with 'SSH' and is reachable from the internet
+Recommendation:edit the Security Group sg-077386c7b312aab9a to remove access from the internet on port 22
+
+-S3 buckets cand-c3-free-recipes-244000766408 and cand-c3-secret-recipes-244000766408 without encryption and with public access read
+Recommendation: S3 buckets should have server-side encryption enabled 
+                Remove bucket public accessibility
+
+-On instance i-0cf8a3b57a71d121d, process 'python3' is listening on TCP port 5000 which is reachable from the internet
+Recommendation: edit the Security Group sg-077386c7b312aab9a to remove access from the internet on port 5000
+
+-Ensure no security groups allow ingress from 0.0.0.0/0 to port 22 and 3389 for SGs AttackInstanceSG, WebAppSG
+Recommendation: limited access to specific IP addressess for webserver
+
+-both Instances should not have a public IPv4 address
+Recommendation:Remove public access for EC2 instances

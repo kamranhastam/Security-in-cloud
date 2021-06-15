@@ -1,0 +1,8 @@
+# Describe GuardDuty findings that were detected related to the brute force attack
+I run the attack script and I was checking for almost 3 hours but gaurd duty didn't detect anything related to brute force attack,
+it was setup base on instruction everything and I attack on public DNS ip address of webserver and guard duty in the same region, 
+I provided guardduty,attack terminal and vpcflow log snapshots base on mentor help guidance for consideration. 
+
+but it should find UnauthorizedAccess:EC2/SSHBruteForce if it works properly
+# Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
+EC2 instance in your AWS environment was involved in a brute force attack aimed at obtaining passwords to SSH services on Linux-based systems. This can indicate unauthorized access to your AWS resources.

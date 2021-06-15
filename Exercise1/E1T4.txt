@@ -1,0 +1,10 @@
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security
+
+#poor security 1
+InstanceRolePolicy-C3 is not followed by Principle of Least Privilege. 
+base on this diagram it's better to limit access to specific S3 bucket and not to all resources.
+
+#poor security 2
+Security group WebAppSG is not following standard security compliance and it's open to all CIDR 0.0.0.0/0 for all inbound traffic (http, ssh, TCP),
+if anyone can breach to the network then attacker can get all information.
+

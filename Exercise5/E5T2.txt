@@ -1,0 +1,16 @@
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates
+ Regula, Terrascan, Chef inspec
+### Example vulnerability
+Ingress Access to all CIDR 0.0.0.0/0 by Terrascan
+IAM policies with full "*:*" administrative privileges
+##Scan AMI’s or containers for OS vulnerabilities
+Anchore, clair
+### Example vulnerability
+NIST: https://nvd.nist.gov/ 
+##Scan an AWS environment for cloud configuration vulnerabilities
+AWS Config
+### Example vulnerability
+low secured privileged users with no MFA
+SSE encryption disabled for S3 bucket
