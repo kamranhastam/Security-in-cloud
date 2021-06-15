@@ -5,4 +5,5 @@ I provided guardduty,attack terminal and vpcflow log snapshots base on mentor he
 
 but it should find UnauthorizedAccess:EC2/SSHBruteForce if it works properly
 # Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
-EC2 instance in your AWS environment was involved in a brute force attack aimed at obtaining passwords to SSH services on Linux-based systems. This can indicate unauthorized access to your AWS resources.
+Guard Duty collect information from several source like VPC Flow Logs,CloudTrail, DNS logs and CloudWatch and performs analyses against that data. 
+In the case of the brute force attack, it detected information about the network traffic from the VPC Flow Logs and AWS CloudTrail
